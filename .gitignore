@@ -1,0 +1,6 @@
+# java related files
+*.class
+
+# python related files
+*.pyc
+*__pycache__/
