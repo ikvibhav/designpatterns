@@ -1,3 +1,5 @@
+package custom_java_packages.singleton;
+
 public class Singleton {
     private static Singleton instance;
 
