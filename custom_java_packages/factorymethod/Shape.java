@@ -1,4 +1,4 @@
-package custom_java_packages.factoryobject;
+package factorymethod;
 
 public interface Shape {
     void draw();

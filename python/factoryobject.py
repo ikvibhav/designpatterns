@@ -1,12 +1,36 @@
 from abc import ABC, abstractmethod
 
-# Product Interface
+# Abstract Factory Interface
+class AbstractShapeFactory(ABC):
+    @abstractmethod
+    def create_circle(self):
+        pass
+
+    @abstractmethod
+    def create_square(self):
+        pass
+
+    @abstractmethod
+    def create_rectangle(self):
+        pass
+
+# Concrete Factory Class
+class ShapeFactory(AbstractShapeFactory):
+    def create_circle(self):
+        return Circle()
+
+    def create_square(self):
+        return Square()
+
+    def create_rectangle(self):
+        return Rectangle()
+
+# Shape Classes
 class Shape(ABC):
     @abstractmethod
     def draw(self):
         pass
 
-# Concrete Products
 class Circle(Shape):
     def draw(self):
         return "Drawing a Circle"
@@ -19,28 +43,15 @@ class Rectangle(Shape):
     def draw(self):
         return "Drawing a Rectangle"
 
-# Factory Class
-class ShapeFactory:
-    @staticmethod
-    def get_shape(shape_type):
-        if shape_type == "CIRCLE":
-            return Circle()
-        elif shape_type == "SQUARE":
-            return Square()
-        elif shape_type == "RECTANGLE":
-            return Rectangle()
-        else:
-            return None
-
 # Client Code
 if __name__ == "__main__":
     shape_factory = ShapeFactory()
 
-    shape1 = shape_factory.get_shape("CIRCLE")
-    print(shape1.draw())
+    circle = shape_factory.create_circle()
+    print(circle.draw())
 
-    shape2 = shape_factory.get_shape("SQUARE")
-    print(shape2.draw())
+    square = shape_factory.create_square()
+    print(square.draw())
 
-    shape3 = shape_factory.get_shape("RECTANGLE")
-    print(shape3.draw())
+    rectangle = shape_factory.create_rectangle()
+    print(rectangle.draw())

@@ -1,4 +1,4 @@
-package custom_java_packages.factoryobject;
+package factorymethod;
 
 public class Circle implements Shape {
     @Override
