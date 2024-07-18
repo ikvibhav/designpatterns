@@ -1,0 +1,39 @@
+@startuml
+
+interface Shape {
+    +draw() : String
+}
+
+class Circle {
+    +draw() : String
+}
+
+class Square {
+    +draw() : String
+}
+
+class Rectangle {
+    +draw() : String
+}
+
+interface AbstractShapeFactory {
+    +create_circle() : Shape
+    +create_square() : Shape
+    +create_rectangle() : Shape
+}
+
+class ShapeFactory {
+    +create_circle() : Circle
+    +create_square() : Square
+    +create_rectangle() : Rectangle
+}
+
+Shape <|.. Circle
+Shape <|.. Square
+Shape <|.. Rectangle
+
+AbstractShapeFactory <|.. ShapeFactory
+
+ShapeFactory ..> Shape : "creates"
+
+@enduml

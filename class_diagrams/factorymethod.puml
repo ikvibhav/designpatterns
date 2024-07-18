@@ -1,0 +1,29 @@
+@startuml
+
+interface Shape {
+    +draw()
+}
+
+class Circle {
+    +draw() : String
+}
+
+class Square {
+    +draw() : String
+}
+
+class Rectangle {
+    +draw() : String
+}
+
+class ShapeFactory {
+    +get_shape(shape_type: String) : Shape
+}
+
+Shape <|.. Circle
+Shape <|.. Square
+Shape <|.. Rectangle
+
+ShapeFactory ..> Shape : "creates"
+
+@enduml
