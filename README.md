@@ -21,6 +21,8 @@
     - Concrete implementations are made of this abstract method
     - A static method then returns a concrete implementation of the abstract method, based on the provided type
 
+## Creational Design Patterns
+
 ### Facade Pattern
 - Intent
     - To give a point of entry to the subsystem
