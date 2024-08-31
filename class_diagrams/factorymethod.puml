@@ -1,9 +1,16 @@
 @startuml
 
+title Factory Method Pattern
+
+' Loosens the coupling between 
+' product construction code and product usage code
+
+' Interface for the product
 interface Shape {
-    +draw()
+    +draw() : String
 }
 
+' Concrete products implementing the Shape interface
 class Circle {
     +draw() : String
 }
@@ -16,14 +23,30 @@ class Rectangle {
     +draw() : String
 }
 
+' Factory class with a method to create objects based on a type
 class ShapeFactory {
     +get_shape(shape_type: String) : Shape
 }
 
+' Circle, Square and Rectangle implement Shape Interface
 Shape <|.. Circle
 Shape <|.. Square
 Shape <|.. Rectangle
 
+' ShapeFactory creates objects that implement Shape Interface
 ShapeFactory ..> Shape : "creates"
+
+' Example of client code using the factory method
+note right of ShapeFactory
+    Client code:
+    ShapeFactory factory = new ShapeFactory()
+    Shape circle = factory.get_shape("Circle")
+    Shape square = factory.get_shape("Square")
+    Shape rectangle = factory.get_shape("Rectangle")
+    
+    circle.draw()
+    square.draw()
+    rectangle.draw()
+end note
 
 @enduml

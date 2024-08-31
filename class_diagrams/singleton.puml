@@ -1,0 +1,33 @@
+@startuml
+
+title Singleton Pattern
+
+' Singleton class definition
+class Singleton {
+    -__instance : Singleton
+    +get_instance() : Singleton
+    -__init__()
+}
+
+' Initializing the static instance variable to None
+Singleton : -__instance = None
+
+' Public method to get the single instance of the class
+Singleton : +get_instance()
+
+' Private constructor to prevent direct instantiation
+Singleton : -__init__()
+
+' Singleton class creates its own instance
+Singleton ..> Singleton : "creates"
+
+' Example of client code using the Singleton
+note right of Singleton
+    Client code:
+    Singleton instance1 = Singleton.get_instance()
+    Singleton instance2 = Singleton.get_instance()
+    
+    assert instance1 == instance2
+end note
+
+@enduml

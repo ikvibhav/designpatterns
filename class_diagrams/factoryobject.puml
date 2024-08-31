@@ -1,9 +1,17 @@
 @startuml
 
+title Abstract Factory Pattern/ Factory Object Pattern
+
+' Produces families of related objects 
+' without specifying their concrete classes
+' This is needed when multiple factories are needed
+
+' Interface for the product family
 interface Shape {
     +draw() : String
 }
 
+' Concrete products implementing the Shape interface
 class Circle {
     +draw() : String
 }
@@ -16,24 +24,38 @@ class Rectangle {
     +draw() : String
 }
 
+' Abstract factory interface declaring creation methods for each product
 interface AbstractShapeFactory {
     +create_circle() : Shape
     +create_square() : Shape
     +create_rectangle() : Shape
 }
 
+' Concrete factory implementing the abstract factory interface
 class ShapeFactory {
     +create_circle() : Circle
     +create_square() : Square
     +create_rectangle() : Rectangle
 }
 
+' Circle, Square and Rectangle implement Shape Interface
 Shape <|.. Circle
 Shape <|.. Square
 Shape <|.. Rectangle
 
+' ShapeFactory implements AbstractShapeFactory Interface
 AbstractShapeFactory <|.. ShapeFactory
 
+' ShapeFactory creates objects that implement Shape Interface
 ShapeFactory ..> Shape : "creates"
+
+' Example of client code using the abstract factory
+note right of ShapeFactory
+    Client code:
+    ShapeFactory factory = new ShapeFactory()
+    Shape circle = factory.create_circle()
+    Shape square = factory.create_square()
+    Shape rectangle = factory.create_rectangle()
+end note
 
 @enduml
