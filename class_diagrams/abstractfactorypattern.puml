@@ -1,6 +1,6 @@
 @startuml
 
-title Abstract Factory Pattern/ Factory Object Pattern
+title Abstract Factory Pattern
 
 ' Produces families of related objects 
 ' without specifying their concrete classes
