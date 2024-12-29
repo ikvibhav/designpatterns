@@ -1,13 +1,24 @@
 # Designpatterns
 
 ## Behavioural Design Patterns
-- Focus on how individual objects collaborate to achieve a common goal
 
-### Behavioural Design Pattern
+### Template Method Pattern
 - Intent
-    - Defers the implementation of some steps to subclasses
+    - Create the implementation steps in function methods
 - Implementation
-    - An abstract superclass, with some final methods (for common methods) and abstract methods for specific methods in the child 
+    - Superclass - A Public Template Method and multiple abstract methods. Individual Subclasses implement the abstract methods
 
-## Misc
-- final - This makes the method declared not be overwritten by subclasses
+### Chain of Responsibility Pattern
+- Intent
+    - To Process a single request using a chain of multiple handlers
+- Implementation
+    - Define an interface for handling requests. Concrete handlers implement the handler interface
+
+### State Pattern
+- Intent
+    - To allow an object to change its behaviour dynamically based on its internal state
+- Implementation
+    - Define an interface and context class. Interface handles requests and transitions.Context Class maintains current state, delegates requests and coordinates state changes
+
+### Command Pattern
+ 

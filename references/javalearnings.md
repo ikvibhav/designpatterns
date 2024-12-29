@@ -12,3 +12,5 @@ java <PACKAGENAME>.CLIENT_CODE
 ```
 
 3. In Java, if an interface or class is declared as public, it must be placed in a file with the same name as the interface or class
+
+4. If a method is declared as final, then its implementation cannot be overriden by subclasses
